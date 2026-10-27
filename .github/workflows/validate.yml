@@ -20,7 +20,7 @@ jobs:
     name: Theme YAML
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       # The theme must parse, keep its name, and keep `modes.dark` without `modes.light`
       # (without it HA forces light mode and text fields become unreadable).
       - name: Check theme structure
