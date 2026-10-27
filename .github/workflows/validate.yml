@@ -1,0 +1,38 @@
+name: Validate
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "0 3 * * 1"
+  workflow_dispatch:
+
+jobs:
+  hacs:
+    name: HACS validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: hacs/action@main
+        with:
+          category: theme
+
+  yaml:
+    name: Theme YAML
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # The theme must parse, keep its name, and keep `modes.dark` without `modes.light`
+      # (without it HA forces light mode and text fields become unreadable).
+      - name: Check theme structure
+        run: |
+          python - <<'EOF'
+          import yaml
+          data = yaml.safe_load(open("themes/palette_axi_neon.yaml", encoding="utf-8"))
+          theme = data["palette-axi-neon"]
+          modes = theme.get("modes", {})
+          assert "dark" in modes and "light" not in modes, "modes must declare dark only"
+          for key, value in theme.items():
+              if key != "modes":
+                  assert isinstance(value, str), f"{key} must be a quoted string"
+          print(f"ok: {len(theme) - 1} variables + modes.dark ({len(modes['dark'])})")
+          EOF

@@ -1,0 +1,105 @@
+# Palette AXI Neon — a dark neon theme for Home Assistant.
+# https://github.com/ngoviet/palette-axi-neon
+#
+# Palette built in OKLCH with palette-axi (`palette-axi generate --preset neon-dark --mode dark`, 7/7 rules):
+#   - Night-blue background, not black (L 0.18); cards one step lighter (+0.03 L); soft top-left glow.
+#   - Borders and text share hue 260 with low chroma (≤ 0.06), so greys look tinted, not dead.
+#   - Accents sit on one lightness band (L 0.70–0.84) and only change hue. One meaning per colour:
+#     green = good · amber = attention · red = error · blue = info · cyan = primary.
+#   - Contrast on the card background #0e182e: text #e6edf7 14.99:1 · secondary text #a2b7d7 8.66:1.
+#
+# Dark only. The `modes: dark:` block at the end is REQUIRED: a theme without `modes` makes the Home Assistant
+# frontend force light mode, so text fields and pickers fall back to the light defaults (#f5f5f5 fill) while the
+# text inherits the light primary-text-color — light text on a light field. Declaring `dark` without `light`
+# makes HA force dark mode instead, so everything this theme does not override uses the dark defaults.
+
+palette-axi-neon:
+  ha-card-border-radius: "18px"
+  ha-card-border-width: "1px"
+  ha-card-border-color: "#1e2b4a"
+  ha-card-box-shadow: "0 10px 28px rgba(0, 0, 0, 0.35)"
+  primary-color: "#22d3ee"
+  accent-color: "#22d3ee"
+  dark-primary-color: "#14b8a6"
+  light-primary-color: "#142443"
+  text-primary-color: "#0a1122"
+  text-accent-color: "#0a1122"
+  rgb-primary-color: "34, 211, 238"
+  primary-background-color: "#0a1122"
+  secondary-background-color: "#060a14"
+  lovelace-background: "radial-gradient(120% 140% at 0% 0%, #142443 0%, #0a1122 55%, #060a14 100%) fixed"
+  card-background-color: "#0e182e"
+  ha-card-background: "#0e182e"
+  primary-text-color: "#e6edf7"
+  rgb-primary-text-color: "230, 237, 247"
+  secondary-text-color: "#a2b7d7"
+  disabled-text-color: "#6b7fa3"
+  disabled-color: "#6b7fa3"
+  rgb-disabled-color: "107, 127, 163"
+  divider-color: "#1e2b4a"
+  state-icon-color: "#22d3ee"
+  success-color: "#22c55e"
+  warning-color: "#f59e0b"
+  error-color: "#ff716a"
+  info-color: "#6ca4ff"
+  sidebar-background-color: "#060a14"
+  sidebar-text-color: "#a2b7d7"
+  sidebar-icon-color: "#a2b7d7"
+  sidebar-selected-text-color: "#22d3ee"
+  sidebar-selected-icon-color: "#22d3ee"
+  app-header-background-color: "#060a14"
+  app-header-text-color: "#e6edf7"
+  # Named colours used by HA and Mushroom (chips, icon_color, …), remapped to the same lightness band
+  red-color: "#ff716a"
+  rgb-red-color: "255, 113, 106"
+  pink-color: "#f472b6"
+  rgb-pink-color: "244, 114, 182"
+  purple-color: "#a78bfa"
+  rgb-purple-color: "167, 139, 250"
+  deep-purple-color: "#a78bfa"
+  rgb-deep-purple-color: "167, 139, 250"
+  indigo-color: "#6ca4ff"
+  rgb-indigo-color: "108, 164, 255"
+  blue-color: "#6ca4ff"
+  rgb-blue-color: "108, 164, 255"
+  light-blue-color: "#38bdf8"
+  rgb-light-blue-color: "56, 189, 248"
+  cyan-color: "#22d3ee"
+  rgb-cyan-color: "34, 211, 238"
+  teal-color: "#14b8a6"
+  rgb-teal-color: "20, 184, 166"
+  green-color: "#22c55e"
+  rgb-green-color: "34, 197, 94"
+  light-green-color: "#34d399"
+  rgb-light-green-color: "52, 211, 153"
+  amber-color: "#fbbf24"
+  rgb-amber-color: "251, 191, 36"
+  orange-color: "#fb923c"
+  rgb-orange-color: "251, 146, 60"
+  deep-orange-color: "#fb923c"
+  rgb-deep-orange-color: "251, 146, 60"
+  grey-color: "#a2b7d7"
+  rgb-grey-color: "162, 183, 215"
+  # Extra palette variables for your own cards: `var(--nv-blue, #448aff)` keeps a fallback on other themes
+  nv-cyan: "#22d3ee"
+  nv-blue: "#6ca4ff"
+  nv-green: "#22c55e"
+  nv-amber: "#fbbf24"
+  nv-red: "#ff716a"
+  nv-purple: "#a78bfa"
+  nv-orange: "#fb923c"
+  nv-pink: "#f472b6"
+  nv-metric: "#7dd3fc"
+  nv-surface: "#0e182e"
+  # Dark only: `dark` without `light` makes HA force dark mode (see the note at the top)
+  modes:
+    dark:
+      input-fill-color: "#142443"
+      input-disabled-fill-color: "#0e182e"
+      input-ink-color: "#e6edf7"
+      input-label-ink-color: "#a2b7d7"
+      input-disabled-ink-color: "#6b7fa3"
+      input-dropdown-icon-color: "#a2b7d7"
+      input-idle-line-color: "#6b7fa3"
+      input-hover-line-color: "#a2b7d7"
+      code-editor-background-color: "#0e182e"
