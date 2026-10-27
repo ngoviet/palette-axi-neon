@@ -1,16 +1,23 @@
 # Palette AXI Neon
 
+<!-- readme-axi type=card -->
+
 [![HACS Custom](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://hacs.xyz/docs/faq/custom_repositories)
 [![GitHub release](https://img.shields.io/github/v/release/ngoviet/palette-axi-neon)](https://github.com/ngoviet/palette-axi-neon/releases)
 [![HACS validation](https://github.com/ngoviet/palette-axi-neon/actions/workflows/validate.yml/badge.svg)](https://github.com/ngoviet/palette-axi-neon/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+**English** · [Tiếng Việt](README.vi.md)
+
 A dark neon theme for Home Assistant: night-blue surfaces, neon accents, and text that stays readable
 everywhere, including the text fields and pickers that many dark themes leave light.
 
+> 🇻🇳 Built and maintained by one person in Việt Nam — if it saves you time, please
+> [support the project](#support-the-project).
+
 ![Palette AXI Neon colour palette](https://raw.githubusercontent.com/ngoviet/palette-axi-neon/main/images/palette.png)
 
-## Highlights
+## Features
 
 - **Night blue, not black.** The page background is a deep blue (OKLCH L 0.18), cards sit one step lighter, and a
   soft glow lifts the top-left corner. Borders and greys share the background hue, so nothing looks dead grey.
@@ -119,14 +126,6 @@ color: var(--nv-blue, #448aff);
 Palette generated and checked with **palette-axi** (OKLCH, `generate --preset neon-dark`), a small CLI that
 audits UI colours: tinted neutrals, accents on one lightness band, APCA and WCAG contrast, sRGB gamut.
 
-## Tiếng Việt
-
-Theme tối phong cách neon cho Home Assistant: nền xanh đêm (không đen), màu nhấn cùng một dải sáng, chữ đọc rõ ở
-mọi nơi, kể cả ô nhập liệu. Cài qua HACS (Custom repositories → loại **Theme**) hoặc chép
-`themes/palette_axi_neon.yaml` vào `/config/themes/`, rồi gọi `frontend.reload_themes` và chọn theme trong
-**Hồ sơ → Theme**. Đừng xoá khối `modes: dark:` ở cuối file: thiếu nó, HA ép chế độ sáng và chữ trong ô nhập gần
-như không đọc được.
-
 <!-- support:start -->
 ## Support the project
 
@@ -144,9 +143,10 @@ như không đọc được.
   <img src="https://raw.githubusercontent.com/ngoviet/.github/main/assets/support/vietqr-card.svg" width="300" alt="VietQR — MB Bank — NGO DUC VIET — 911051212">
 </p>
 
-<p align="center"><sub>🇻🇳 VietQR: quét bằng app ngân hàng bất kỳ, nội dung <code>Ung ho palette-axi-neon</code>. Cảm ơn bạn! · Thank you for keeping this project alive.</sub></p>
+<p align="center"><sub>🇻🇳 VietQR: scan with any Vietnamese banking app, transfer note <code>Ung ho palette-axi-neon</code>. Thank you for keeping this project alive!</sub></p>
+<p align="center"><sub>Crypto (BEP20 network): <code>0x57f07d44fb581cddc028a0c67d63a8cc05aa6caa</code> · USDT · USDC · BNB · ETH · BTC</sub></p>
 <!-- support:end -->
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE) © Ngô Đức Việt.
