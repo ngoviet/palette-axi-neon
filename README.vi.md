@@ -12,6 +12,9 @@
 Theme tối phong cách neon cho Home Assistant: nền xanh đêm, màu nhấn neon, chữ đọc rõ ở mọi nơi, kể cả các ô
 nhập liệu và bộ chọn mà nhiều theme tối vẫn để màu sáng.
 
+Cùng lần cài còn có **Palette AXI Cockpit** (`palette-axi-cockpit`), theme sáng + tối tự đổi theo thiết bị: xem
+[Palette AXI Cockpit](#palette-axi-cockpit).
+
 > 🇻🇳 Dự án do một người Việt tự xây dựng và duy trì — nếu nó giúp ích cho bạn, hãy
 > [ủng hộ dự án](#ủng-hộ-dự-án).
 
@@ -116,10 +119,43 @@ Theme còn định nghĩa các biến `--nv-*` (`nv-cyan`, `nv-blue`, `nv-green`
 color: var(--nv-blue, #448aff);
 ```
 
+## Palette AXI Cockpit
+
+`palette-axi-cockpit` lấy hệ thống thiết kế của [cockpit-tools](https://github.com/jlcodes99/cockpit-tools)
+(Tailwind slate + blue, nền giấy ấm) và làm đậm các màu quá nhạt bằng palette-axi (`generate --preset cockpit`).
+Theme khai báo cả `modes.light` lẫn `modes.dark`, nên Home Assistant đổi theo cài đặt sáng/tối của hồ sơ (**Tự
+động** thì theo hệ điều hành).
+
+- **Nền ấm, chữ lạnh.** Nền trang ở chế độ sáng là trắng ngà hơi ấm; chữ, viền và biểu tượng giữ sắc xanh slate.
+- **Xanh dương → xanh mòng két.** Hai quầng sáng nhẹ ở góc trang; `--ck-gradient-primary` cho card tự làm cùng
+  dải chuyển màu 135° đó.
+- **Hai loại bề mặt.** Hộp thoại và menu nền đặc (`card-background-color`); card trong suốt nhẹ
+  (`ha-card-background`, 75% sáng / 85% tối) để dải màu nền xuyên qua.
+- **Đường kẻ bằng độ trong.** Viền, đường chia và bóng là màu chữ ở độ trong suốt thấp (chế độ tối: trắng / đen).
+- **Màu trạng thái đọc được.** Trên nền sáng, mọi màu trạng thái và màu có tên đạt APCA Lc 60+ (khoảng 3.7:1, đủ
+  cho biểu tượng và chip); ở chế độ tối đạt 5.2–6.9:1 trên card.
+
+| Vai trò | Biến | Sáng | Tối |
+|------|----------|-------|------|
+| Nền trang | `primary-background-color` | `#f7f5f0` | `#0c1427` |
+| Bề mặt đặc | `card-background-color` | `#fdfcf7` | `#1e293b` |
+| Chữ chính | `primary-text-color` | `#0f172a` (17.4:1) | `#f1f5f9` (13.4:1) |
+| Chữ phụ | `secondary-text-color` | `#475569` (7.4:1) | `#becee4` (9.2:1) |
+| Chữ vô hiệu | `disabled-text-color` | `#717f93` (4.0:1) | `#a6b7d0` (7.2:1) |
+| Màu chính | `primary-color` | `#1d4ed8` (6.5:1) | `#6ca4ff` (5.9:1) |
+| Màu nhấn | `accent-color` | `#0ea5a5` | `#14b8a6` |
+| Thành công | `success-color` | `#009541` | `#22c55e` |
+| Cảnh báo | `warning-color` | `#b57300` | `#f59e0b` |
+| Lỗi | `error-color` | `#ef4444` | `#ff716a` |
+
+Tương phản là tỉ lệ WCAG 2, đo trên bề mặt card đặc. Biến bổ sung cho card tự làm: `ck-primary`, `ck-accent`,
+`ck-gradient-primary`, `ck-surface`, `ck-panel`, `ck-hover` (luôn ghi giá trị dự phòng, như với `--nv-*`).
+
 ## Tương thích
 
 - Đã thử trên Home Assistant **2026.10**.
-- Chỉ có bản tối: không có biến thể sáng, và theme vẫn tối ngay cả khi hồ sơ của bạn đặt sáng hoặc tự động.
+- `palette-axi-neon` chỉ có bản tối: theme vẫn tối ngay cả khi hồ sơ của bạn đặt sáng hoặc tự động.
+- `palette-axi-cockpit` có cả hai chế độ và đổi theo cài đặt của hồ sơ.
 
 ## Ghi công
 
