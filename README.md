@@ -8,6 +8,9 @@
 A dark neon theme for Home Assistant: night-blue surfaces, neon accents, and text that stays readable
 everywhere, including the text fields and pickers that many dark themes leave light.
 
+The same install also adds **Palette AXI Cockpit** (`palette-axi-cockpit`), a light + dark theme that follows
+your device: see [Palette AXI Cockpit](#palette-axi-cockpit).
+
 ![Palette AXI Neon colour palette](https://raw.githubusercontent.com/ngoviet/palette-axi-neon/main/images/palette.png)
 
 ## Highlights
@@ -109,10 +112,43 @@ fallback so the card still works on other themes:
 color: var(--nv-blue, #448aff);
 ```
 
+## Palette AXI Cockpit
+
+`palette-axi-cockpit` takes the design system of [cockpit-tools](https://github.com/jlcodes99/cockpit-tools)
+(Tailwind slate + blue, warm paper background) and fixes the colours that were too faint, using palette-axi
+(`generate --preset cockpit`). It declares both `modes.light` and `modes.dark`, so Home Assistant switches with
+your profile's light/dark setting (**Auto** follows the operating system).
+
+- **Warm paper, cool text.** The light page is a warm off-white; text, borders and icons stay slate blue.
+- **Blue to teal.** Two soft corner glows on the page; `--ck-gradient-primary` gives the same 135° gradient to
+  your own cards.
+- **Two surfaces.** Dialogs and menus are solid (`card-background-color`); cards are translucent
+  (`ha-card-background`, 75% light / 85% dark) so the page gradient shows through.
+- **Alpha lines.** Borders, dividers and shadows are the text colour at low alpha (white / black in dark mode).
+- **Readable status colours.** On the light background every status and named colour reaches APCA Lc 60+ (about
+  3.7:1, enough for icons and chips); in dark mode they are 5.2–6.9:1 on cards.
+
+| Role | Variable | Light | Dark |
+|------|----------|-------|------|
+| Page background | `primary-background-color` | `#f7f5f0` | `#0c1427` |
+| Solid surface | `card-background-color` | `#fdfcf7` | `#1e293b` |
+| Primary text | `primary-text-color` | `#0f172a` (17.4:1) | `#f1f5f9` (13.4:1) |
+| Secondary text | `secondary-text-color` | `#475569` (7.4:1) | `#becee4` (9.2:1) |
+| Disabled text | `disabled-text-color` | `#717f93` (4.0:1) | `#a6b7d0` (7.2:1) |
+| Primary | `primary-color` | `#1d4ed8` (6.5:1) | `#6ca4ff` (5.9:1) |
+| Accent | `accent-color` | `#0ea5a5` | `#14b8a6` |
+| Success | `success-color` | `#009541` | `#22c55e` |
+| Warning | `warning-color` | `#b57300` | `#f59e0b` |
+| Error | `error-color` | `#ef4444` | `#ff716a` |
+
+Contrast is WCAG 2, measured on the solid card surface. Extra variables for your own cards: `ck-primary`,
+`ck-accent`, `ck-gradient-primary`, `ck-surface`, `ck-panel`, `ck-hover` (give a fallback, as with `--nv-*`).
+
 ## Compatibility
 
 - Tested on Home Assistant **2026.10**.
-- Dark only: there is no light variant, and the theme stays dark even when your profile is set to light or auto.
+- `palette-axi-neon` is dark only: it stays dark even when your profile is set to light or auto.
+- `palette-axi-cockpit` has both modes and follows the profile setting.
 
 ## Credits
 
@@ -126,6 +162,10 @@ mọi nơi, kể cả ô nhập liệu. Cài qua HACS (Custom repositories → l
 `themes/palette_axi_neon.yaml` vào `/config/themes/`, rồi gọi `frontend.reload_themes` và chọn theme trong
 **Hồ sơ → Theme**. Đừng xoá khối `modes: dark:` ở cuối file: thiếu nó, HA ép chế độ sáng và chữ trong ô nhập gần
 như không đọc được.
+
+Cùng lần cài còn có theme **`palette-axi-cockpit`** (sáng + tối, tự đổi theo cài đặt sáng/tối của hồ sơ), lấy từ
+bảng màu của cockpit-tools: nền giấy ấm, chữ slate, cặp màu xanh dương → xanh mòng két, thẻ trong suốt nhẹ; các
+màu trạng thái và chữ mờ đã được làm đậm để đọc được trên nền sáng.
 
 ## License
 

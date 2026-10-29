@@ -21,18 +21,33 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      # The theme must parse, keep its name, and keep `modes.dark` without `modes.light`
-      # (without it HA forces light mode and text fields become unreadable).
+      # The file must parse and keep both theme names. palette-axi-neon keeps `modes.dark` without
+      # `modes.light` (without it HA forces light mode and text fields become unreadable);
+      # palette-axi-cockpit declares both modes with the same variables so it follows the device.
       - name: Check theme structure
         run: |
           python - <<'EOF'
           import yaml
           data = yaml.safe_load(open("themes/palette_axi_neon.yaml", encoding="utf-8"))
-          theme = data["palette-axi-neon"]
-          modes = theme.get("modes", {})
-          assert "dark" in modes and "light" not in modes, "modes must declare dark only"
-          for key, value in theme.items():
-              if key != "modes":
-                  assert isinstance(value, str), f"{key} must be a quoted string"
-          print(f"ok: {len(theme) - 1} variables + modes.dark ({len(modes['dark'])})")
+          assert set(data) == {"palette-axi-neon", "palette-axi-cockpit"}, f"unexpected themes: {sorted(data)}"
+
+          def strings(where, values):
+              for key, value in values.items():
+                  assert isinstance(value, str), f"{where}.{key} must be a quoted string"
+
+          neon = data["palette-axi-neon"]
+          modes = neon.get("modes", {})
+          assert "dark" in modes and "light" not in modes, "palette-axi-neon: modes must declare dark only"
+          strings("palette-axi-neon", {k: v for k, v in neon.items() if k != "modes"})
+          strings("palette-axi-neon.modes.dark", modes["dark"])
+          print(f"ok palette-axi-neon: {len(neon) - 1} variables + modes.dark ({len(modes['dark'])})")
+
+          cockpit = data["palette-axi-cockpit"]
+          modes = cockpit.get("modes", {})
+          assert set(modes) == {"light", "dark"}, "palette-axi-cockpit: modes must declare light and dark"
+          assert set(modes["light"]) == set(modes["dark"]), "palette-axi-cockpit: light and dark must set the same variables"
+          strings("palette-axi-cockpit", {k: v for k, v in cockpit.items() if k != "modes"})
+          for mode in ("light", "dark"):
+              strings(f"palette-axi-cockpit.modes.{mode}", modes[mode])
+          print(f"ok palette-axi-cockpit: {len(cockpit) - 1} shared + {len(modes['light'])} per mode")
           EOF
