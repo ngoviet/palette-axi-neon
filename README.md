@@ -1,9 +1,13 @@
 # Palette AXI Neon
 
+<!-- readme-axi type=card -->
+
 [![HACS Custom](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://hacs.xyz/docs/faq/custom_repositories)
 [![GitHub release](https://img.shields.io/github/v/release/ngoviet/palette-axi-neon)](https://github.com/ngoviet/palette-axi-neon/releases)
 [![HACS validation](https://github.com/ngoviet/palette-axi-neon/actions/workflows/validate.yml/badge.svg)](https://github.com/ngoviet/palette-axi-neon/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+**English** · [Tiếng Việt](README.vi.md)
 
 A dark neon theme for Home Assistant: night-blue surfaces, neon accents, and text that stays readable
 everywhere, including the text fields and pickers that many dark themes leave light.
@@ -11,9 +15,12 @@ everywhere, including the text fields and pickers that many dark themes leave li
 The same install also adds **Palette AXI Cockpit** (`palette-axi-cockpit`), a light + dark theme that follows
 your device: see [Palette AXI Cockpit](#palette-axi-cockpit).
 
+> 🇻🇳 Built and maintained by one person in Việt Nam — if it saves you time, please
+> [support the project](#support-the-project).
+
 ![Palette AXI Neon colour palette](https://raw.githubusercontent.com/ngoviet/palette-axi-neon/main/images/palette.png)
 
-## Highlights
+## Features
 
 - **Night blue, not black.** The page background is a deep blue (OKLCH L 0.18), cards sit one step lighter, and a
   soft glow lifts the top-left corner. Borders and greys share the background hue, so nothing looks dead grey.
@@ -155,18 +162,30 @@ Contrast is WCAG 2, measured on the solid card surface. Extra variables for your
 Palette generated and checked with **palette-axi** (OKLCH, `generate --preset neon-dark`), a small CLI that
 audits UI colours: tinted neutrals, accents on one lightness band, APCA and WCAG contrast, sRGB gamut.
 
-## Tiếng Việt
+<!-- support:start -->
+## Support the project
 
-Theme tối phong cách neon cho Home Assistant: nền xanh đêm (không đen), màu nhấn cùng một dải sáng, chữ đọc rõ ở
-mọi nơi, kể cả ô nhập liệu. Cài qua HACS (Custom repositories → loại **Theme**) hoặc chép
-`themes/palette_axi_neon.yaml` vào `/config/themes/`, rồi gọi `frontend.reload_themes` và chọn theme trong
-**Hồ sơ → Theme**. Đừng xoá khối `modes: dark:` ở cuối file: thiếu nó, HA ép chế độ sáng và chữ trong ô nhập gần
-như không đọc được.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ngoviet/.github/main/assets/support/banner.svg" width="720" alt="Built and maintained by one person in Việt Nam">
+</p>
 
-Cùng lần cài còn có theme **`palette-axi-cockpit`** (sáng + tối, tự đổi theo cài đặt sáng/tối của hồ sơ), lấy từ
-bảng màu của cockpit-tools: nền giấy ấm, chữ slate, cặp màu xanh dương → xanh mòng két, thẻ trong suốt nhẹ; các
-màu trạng thái và chữ mờ đã được làm đậm để đọc được trên nền sáng.
+<p align="center">
+  <a href="https://buymeacoffee.com/ngoviet"><img src="https://raw.githubusercontent.com/ngoviet/.github/main/assets/support/btn-coffee.svg" height="56" alt="Buy me a coffee"></a>
+  &nbsp;
+  <a href="https://github.com/sponsors/ngoviet"><img src="https://raw.githubusercontent.com/ngoviet/.github/main/assets/support/btn-sponsors.svg" height="56" alt="GitHub Sponsors"></a>
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ngoviet/.github/main/assets/support/vietqr-card.svg" width="300" alt="VietQR — MB Bank — NGO DUC VIET — 911051212">
+  &nbsp;
+  <img src="https://raw.githubusercontent.com/ngoviet/.github/main/assets/support/crypto-card.svg" width="300" alt="Crypto — BNB Smart Chain (BEP20) — 0xcbf0402b232cb24b4d998f09a4884f87b5f74750">
+</p>
+
+<p align="center"><b>Crypto wallet, BNB Smart Chain (BEP20) only:</b><br><code>0xcbf0402b232cb24b4d998f09a4884f87b5f74750</code></p>
+
+<p align="center"><sub>🇻🇳 VietQR: scan with any Vietnamese banking app, transfer note <code>Ung ho palette-axi-neon</code>. Thank you for keeping this project alive!</sub></p>
+<!-- support:end -->
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE) © Ngô Đức Việt.
