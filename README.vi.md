@@ -2,7 +2,7 @@
 
 <!-- readme-axi type=card -->
 
-[![HACS Custom](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://hacs.xyz/docs/faq/custom_repositories)
+[![HACS Default](https://img.shields.io/badge/HACS-Default-41BDF5.svg)](https://hacs.xyz/)
 [![GitHub release](https://img.shields.io/github/v/release/ngoviet/palette-axi-neon)](https://github.com/ngoviet/palette-axi-neon/releases)
 [![HACS validation](https://github.com/ngoviet/palette-axi-neon/actions/workflows/validate.yml/badge.svg)](https://github.com/ngoviet/palette-axi-neon/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -38,11 +38,17 @@ Cùng lần cài còn có **Palette AXI Cockpit** (`palette-axi-cockpit`), theme
 
 ### HACS (khuyên dùng)
 
-1. Mở **HACS** trong Home Assistant.
-2. Mở menu (⋮, góc trên bên phải) → **Custom repositories**.
-3. Thêm `https://github.com/ngoviet/palette-axi-neon` và chọn loại **Theme**.
-4. Tìm **Palette AXI Neon**, mở ra và chọn **Download**.
-5. Tải lại theme: **Developer tools → Actions → `frontend.reload_themes`**, hoặc khởi động lại Home Assistant.
+Palette AXI Neon đã có trong kho mặc định của HACS.
+
+[![Mở Home Assistant và mở repo này trong HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=ngoviet&repository=palette-axi-neon&category=theme)
+
+1. Mở **HACS** trong Home Assistant (hoặc bấm nút ở trên).
+2. Tìm **Palette AXI Neon**, mở ra và chọn **Download**.
+3. Tải lại theme: **Developer tools → Actions → `frontend.reload_themes`**, hoặc khởi động lại Home Assistant.
+
+Nếu tìm không thấy (HACS bản cũ, hoặc kho chưa cập nhật), hãy thêm dưới dạng custom repository: menu (⋮, góc trên
+bên phải) → **Custom repositories** → thêm `https://github.com/ngoviet/palette-axi-neon` với loại **Theme**, rồi
+tải về như trên.
 
 ### Cài tay
 
