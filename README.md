@@ -2,7 +2,7 @@
 
 <!-- readme-axi type=card -->
 
-[![HACS Custom](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://hacs.xyz/docs/faq/custom_repositories)
+[![HACS Default](https://img.shields.io/badge/HACS-Default-41BDF5.svg)](https://hacs.xyz/)
 [![GitHub release](https://img.shields.io/github/v/release/ngoviet/palette-axi-neon)](https://github.com/ngoviet/palette-axi-neon/releases)
 [![HACS validation](https://github.com/ngoviet/palette-axi-neon/actions/workflows/validate.yml/badge.svg)](https://github.com/ngoviet/palette-axi-neon/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -38,11 +38,17 @@ your device: see [Palette AXI Cockpit](#palette-axi-cockpit).
 
 ### HACS (recommended)
 
-1. Open **HACS** in Home Assistant.
-2. Open the menu (⋮, top right) → **Custom repositories**.
-3. Add `https://github.com/ngoviet/palette-axi-neon` and choose the **Theme** type.
-4. Search for **Palette AXI Neon**, open it and select **Download**.
-5. Reload themes: **Developer tools → Actions → `frontend.reload_themes`**, or restart Home Assistant.
+Palette AXI Neon is in the HACS default store.
+
+[![Open your Home Assistant instance and open this repository in HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=ngoviet&repository=palette-axi-neon&category=theme)
+
+1. Open **HACS** in Home Assistant (or use the button above).
+2. Search for **Palette AXI Neon**, open it and select **Download**.
+3. Reload themes: **Developer tools → Actions → `frontend.reload_themes`**, or restart Home Assistant.
+
+If the search finds nothing (an older HACS, or the store has not refreshed yet), add it as a custom repository
+instead: menu (⋮, top right) → **Custom repositories** → add `https://github.com/ngoviet/palette-axi-neon` with
+the **Theme** type, then download it as above.
 
 ### Manual
 
